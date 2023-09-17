@@ -126,4 +126,4 @@ def delete_produto(id):
     return '', 204
 
 if __name__ == "__main__":
-    server.run(debug=True,port=8080)
+    server.run(debug=True,port=5000)
