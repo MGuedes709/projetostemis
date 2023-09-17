@@ -4,6 +4,7 @@ from flask import Flask, request, jsonify
 from flask_pydantic_spec import FlaskPydanticSpec, Response, Request
 from pydantic import BaseModel, Field
 from tinydb import TinyDB, Query
+import os  # Importe a biblioteca 'os' para obter a porta do ambiente
 
 server = Flask(__name__)
 spec = FlaskPydanticSpec('flask', title='Projeto Stemis')
@@ -126,4 +127,7 @@ def delete_produto(id):
     return '', 204
 
 if __name__ == "__main__":
-    server.run(debug=True,port=5000)
+    # Obtém a porta a partir da variável de ambiente ou usa 5000 como padrão
+    port = int(os.environ.get("PORT", 5000))
+    
+    server.run(debug=True, host='0.0.0.0', port=port)
