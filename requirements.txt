@@ -33,7 +33,6 @@ referencing==0.8.9
 requests==2.31.0
 requests-toolbelt==1.0.0
 rich==13.5.2
-rpds-py==0.10.3
 swagger-ui-bundle==0.0.9
 tinydb==4.8.0
 typing_extensions==4.7.1
