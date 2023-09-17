@@ -23,7 +23,7 @@ class Produtos(BaseModel):
     produtos: List[ItemProduto]
     count: int
 
-@server.get('/produtos')
+@server.route('/produtos')
 @spec.validate(resp=Response(HTTP_200=Produtos))
 def get_produtos():
     """
@@ -39,7 +39,7 @@ def get_produtos():
         ).dict()
     )
 
-@server.get('/produtos/<int:id>')
+@server.route('/produtos/<int:id>')
 @spec.validate(resp=Response(HTTP_200=ItemProduto))
 def get_produto(id):
     """
@@ -57,7 +57,7 @@ def get_produto(id):
     except IndexError:
         raise ProdutoNaoEncontrado()  # Levanta exceção personalizada
 
-@server.post('/produtos')
+@server.route('/produtos')
 @spec.validate(
     body=Request(ItemProduto), resp=Response(HTTP_200=ItemProduto)
 )
@@ -78,7 +78,7 @@ def post_produto():
     database.insert(body)
     return body
 
-@server.put('/produtos/<int:id>')
+@server.route('/produtos/<int:id>')
 @spec.validate(
     body=Request(ItemProduto), resp=Response(HTTP_200=ItemProduto)
 )
@@ -106,7 +106,7 @@ def put_produto(id):
     except IndexError:
         raise ProdutoNaoEncontrado()  # Levanta exceção personalizada
 
-@server.delete('/produtos/<int:id>')
+@server.route('/produtos/<int:id>')
 @spec.validate(resp=Response('HTTP_204'))
 def delete_produto(id):
     """
