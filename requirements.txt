@@ -1,0 +1,6 @@
+Flask==2.3.3
+flask-pydantic-spec==0.4.5
+pydantic==1.10.12
+tinydb==4.8.0
+Werkzeug==2.3.7
+zipp==3.16.2
