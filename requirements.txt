@@ -3,4 +3,4 @@ flask-pydantic-spec==0.4.5
 pydantic==1.10.12
 tinydb==4.8.0
 Werkzeug==2.2.3
-zipp==3.16.2
+zipp==3.15.0
